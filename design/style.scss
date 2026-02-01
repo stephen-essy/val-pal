@@ -1,0 +1,245 @@
+// Variables
+$primary-red: #ef1e1e;
+$success-green: #4caf50;
+$glass: rgba(255, 255, 255, 0.2);
+
+body{
+    overflow-y: hidden;
+}
+.page {
+    display: none; // Hidden by default
+    height: 100vh;
+    width: 100%;
+    flex-direction: column;
+    &.active {
+        display: flex; // Only visible when active
+    }
+}
+
+#main-content{
+    width: 100%;
+}
+.top-hero {
+    height: 60%;
+    width: 100%;
+    background-image: url('/resources/pexels-rdne-6708803.jpg');
+    background-size: cover;
+    background-position: center;
+    border-bottom-left-radius: 40px;
+    border-bottom-right-radius: 40px;
+    border-top-left-radius: 40px;
+    border-top-right-radius: 40px;
+
+    .overlay {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background: rgba(0,0,0,0.3);
+        border-radius: inherit;
+
+        h1 {
+            font-size: 8rem;
+            color: white;
+            text-shadow: 3px 3px 10px rgba(0,0,0,0.5);
+        }
+        span {
+            color: white;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            font-size: 0.8rem;
+        }
+    }
+}
+
+.bottom-ctrl {
+    height: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+
+    #val-form{
+        display: flex;
+        gap: 3pt;
+    }
+
+
+    .inputs {
+        input {
+            width: 300px;
+            height: 60px;
+            border: 2px solid $primary-red;
+            border-radius: 15px;
+            padding: 0 20px;
+            font-size: 1.1rem;
+            outline: none;
+        }
+    }
+
+    .buttons {
+        background: $primary-red;
+        height: 60px;
+        width: 180px;
+        border-radius: 15px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: transform 0.3s;
+
+        button {
+            background: transparent;
+            border: none;
+            color: white;
+            font-weight: 600;
+            font-family: 'Poppins';
+            cursor: pointer;
+            width: 100%;
+            height: 100%;
+        }
+
+        &:hover { transform: translateY(-0px); }
+    }
+}
+
+.bottom-ctrls{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 25%;
+    gap: 2pt;
+
+    button{
+        background: #ef1e1e;
+        color: white;
+        outline: none;
+        border: none;
+        width: 2.5cm;
+        height: 1cm;
+        border-radius: 5px;
+        font-family: poppins;
+        cursor: pointer;
+    }
+}
+
+// Final Page specific styling
+#page-final {
+   div{
+    height: 50%;
+    width: 100%;
+   }
+   .full-screen-wish{
+    background: url(/resources/pexels-rdne-6708803.jpg);
+    background-position: center;
+    background-size: cover;
+    justify-content: center;
+    align-items: center;
+    border-bottom-left-radius: 40px;
+    border-bottom-right-radius: 40px;
+    border-top-left-radius: 40px;
+    border-top-right-radius: 40px;
+    height: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    h1{
+        color: white;
+        font-size: 65pt;
+        font-family: 'Dancing script';
+    }
+    p{
+        color: white;
+        font-family: poppins;
+    }
+   }
+
+}
+// Variables for easy customization
+$toast-success: #4caf50;
+$toast-error: #f44336;
+$toast-info: #2196f3;
+$shadow-deep: 0 15px 35px rgba(0, 0, 0, 0.2);
+
+#universal-toast {
+    position: fixed;
+    bottom: 1.5rem; // 24px
+    right: 1.5rem;
+    z-index: 1000;
+    font-family: 'poppins';
+    pointer-events: none; // Only the inner card should be clickable
+    transform: translateY(100px);
+    opacity: 0;
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+    &.show {
+        transform: translateY(0);
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    #toast-bg {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        padding: 1rem 1.25rem;
+        border-radius: 12px;
+        box-shadow: $shadow-deep;
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        color: white;
+        background-color: rgba(33, 33, 33, 0.9); // Default dark mode look
+
+        // Specific states
+        &.success { background-color: rgba($toast-success, 0.9); }
+        &.error   { background-color: rgba($toast-error, 0.9); }
+    }
+
+    #toast-icon-container {
+        flex-shrink: 0;
+        height: 1cm;
+        width: 1cm;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: rgba(255, 255, 255, 0.2);
+
+        svg {
+            width: 1.5rem;
+            height: 1.5rem;
+        }
+    }
+
+    .flex-col {
+        display: flex;
+        flex-direction: column;
+
+        #toast-title {
+            font-weight: 700;
+            font-size: 0.875rem;
+            letter-spacing: 0.025em;
+        }
+
+        #toast-message {
+            font-size: 0.75rem;
+            color: rgba(255, 255, 255, 0.8);
+        }
+    }
+
+    button {
+        margin-left: 0.5rem;
+        background: transparent;
+        border: none;
+        color: rgba(255, 255, 255, 0.5);
+        cursor: pointer;
+        transition: color 0.3s;
+
+        &:hover {
+            color: white;
+        }
+    }
+}

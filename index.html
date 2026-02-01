@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="A Special Message for You...">
+    <meta property="og:description" content="Someone has a question they want to ask you.">
+    <meta property="og:image" content="./resources/thumbnail.jpg">
+    <title>Val Pal</title>
+    <link rel="stylesheet" href="./design/style.css">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Dancing+Script:wght@700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <main id="main-content">
+        <section class="page active" id="page-generator">
+            <div class="top-hero">
+                <div class="overlay">
+                    <h1>VAL PAL</h1>
+                    <span>Create a magical moment</span>
+                </div>
+            </div>
+            <div class="bottom-ctrl">
+                <form id="val-form" onsubmit="event.preventDefault();">
+                    <div class="inputs">
+                        <input type="text" id="val-name" placeholder="Who is the lucky person?" required>
+                    </div>
+                    <div class="buttons">
+                        <button type="button" id="generate-btn">Generate Link</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+        <section class="page" id="page-proposal">
+            <div class="top-hero">
+                <div class="overlay">
+                    <h1 id="proposal-title">Hey There,</h1>
+                    <span>Will you be my Valentine?</span>
+                </div>
+            </div>
+            <div class="bottom-ctrls flex-row">
+                <div class="buttons btn-yes">
+                    <button id="yes-btn">yes</button>
+                </div>
+                <div class="buttons btn-no" id="no-wrapper">
+                    <button id="no-btn">No</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="page" id="page-final">
+            <div class="full-screen-wish">
+                <h1>Infinite Love!</h1>
+                <p>Thanks for the Love , if i had a flower for every time i thought of you ,I'd be walking in a garden
+                    forever</p>
+            </div>
+            <div></div>
+        </section>
+    </main>
+    <div id="universal-toast">
+        <div id="toast-bg" class="success">
+            <div id="toast-icon-container">
+                <svg id="toast-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path d="M5 13l4 4L19 7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+            </div>
+
+            <div class="flex-col">
+                <span id="toast-title">Link Copied!</span>
+                <span id="toast-message">Ready to share the love.</span>
+            </div>
+
+            <button onclick="hideToast()">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
+                    </path>
+                </svg>
+            </button>
+        </div>
+    </div>
+    <script type="module" src="/app/elements.js"></script>
+    <script type="module" src="/app/ui.js"></script>
+    <script type="module" src="/app/app.js"></script>
+</body>
+
+</html>
